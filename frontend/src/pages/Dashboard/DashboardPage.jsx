@@ -74,7 +74,7 @@ const DashboardPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const [catList, supList, prodList, custList, ordList] = await Promise.all([
+      const [catData, supData, prodData, custData, ordData] = await Promise.all([
         categoryApi.getAll(),
         supplierApi.getAll(),
         productApi.getAll(),
@@ -82,7 +82,13 @@ const DashboardPage = () => {
         orderApi.getAll(),
       ]);
 
-      const revenue = ordList.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
+      const catList = Array.isArray(catData) ? catData : [];
+      const supList = Array.isArray(supData) ? supData : [];
+      const prodList = Array.isArray(prodData) ? prodData : [];
+      const custList = Array.isArray(custData) ? custData : [];
+      const ordList = Array.isArray(ordData) ? ordData : [];
+
+      const revenue = ordList.reduce((sum, order) => sum + (order?.totalAmount || 0), 0);
 
       setStats({
         categoriesCount: catList.length,
@@ -99,10 +105,10 @@ const DashboardPage = () => {
       // Group products by category for chart
       const categoryMap = {};
       catList.forEach((c) => {
-        categoryMap[c.name] = 0;
+        if (c?.name) categoryMap[c.name] = 0;
       });
       prodList.forEach((p) => {
-        const catName = p.categoryName || 'Uncategorized';
+        const catName = p?.categoryName || 'Uncategorized';
         categoryMap[catName] = (categoryMap[catName] || 0) + 1;
       });
 
