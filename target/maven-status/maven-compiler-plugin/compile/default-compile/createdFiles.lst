@@ -32,7 +32,6 @@ com\inventory\service\impl\SupplierServiceImpl.class
 com\inventory\dto\OrderRequestDto.class
 com\inventory\exception\CustomerNotFoundException.class
 com\inventory\dto\CustomerRequestDto.class
-com\inventory\controller\RootController.class
 com\inventory\entity\Product.class
 com\inventory\repository\ProductRepository.class
 com\inventory\dto\OrderItemRequestDto.class
