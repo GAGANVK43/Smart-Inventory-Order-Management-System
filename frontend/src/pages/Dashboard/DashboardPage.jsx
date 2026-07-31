@@ -16,6 +16,7 @@ import {
   Button,
   IconButton,
   Tooltip,
+  Avatar,
 } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
