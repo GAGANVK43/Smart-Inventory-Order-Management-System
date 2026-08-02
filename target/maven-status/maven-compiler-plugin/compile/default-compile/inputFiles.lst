@@ -2,6 +2,7 @@ C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Orde
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\OpenApiConfig.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\package-info.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\SecurityConfig.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\AnalyticsController.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\AuthController.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\CategoryController.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\CustomerController.java
@@ -29,7 +30,11 @@ C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Orde
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\request\StockAdjustmentRequestDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\ApiResponse.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\AuthResponseDto.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\DashboardStatsDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\InventoryMovementResponseDto.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\RevenueTrendDto.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\StockHealthDto.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\TopProductDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\UserProfileDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\SupplierRequestDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\SupplierResponseDto.java
@@ -71,9 +76,11 @@ C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Orde
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\security\CustomUserDetailsService.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\security\JwtAuthenticationFilter.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\security\JwtTokenProvider.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\AnalyticsService.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\AuthService.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\CategoryService.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\CustomerService.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\impl\AnalyticsServiceImpl.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\impl\AuthServiceImpl.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\impl\CategoryServiceImpl.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\service\impl\CustomerServiceImpl.java
