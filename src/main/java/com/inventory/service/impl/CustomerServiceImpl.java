@@ -140,10 +140,14 @@ public class CustomerServiceImpl implements CustomerService {
 
         return new OrderResponseDto(
                 order.getId(),
+                order.getOrderNumber(),
                 order.getCustomer().getId(),
                 order.getCustomer().getName(),
                 order.getCustomer().getEmail(),
+                order.getStatus(),
                 order.getTotalAmount(),
+                order.getShippingAddress(),
+                order.getBillingAddress(),
                 order.getOrderDate(),
                 itemDtos
         );

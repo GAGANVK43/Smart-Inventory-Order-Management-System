@@ -26,6 +26,7 @@ com\inventory\dto\ProductRequestDto.class
 com\inventory\entity\Category.class
 com\inventory\entity\RefreshToken.class
 com\inventory\dto\OrderItemResponseDto.class
+com\inventory\enums\OrderStatus.class
 com\inventory\dto\SupplierResponseDto.class
 com\inventory\repository\OrderItemRepository.class
 com\inventory\dto\response\UserProfileDto.class
@@ -77,6 +78,7 @@ com\inventory\controller\CategoryController.class
 com\inventory\service\SupplierService.class
 com\inventory\controller\AuthController.class
 com\inventory\config\CorsConfig.class
+com\inventory\dto\request\OrderStatusUpdateRequestDto.class
 com\inventory\entity\Customer.class
 com\inventory\entity\User.class
 com\inventory\service\CategoryService.class

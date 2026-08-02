@@ -2,11 +2,12 @@ package com.inventory.service;
 
 import com.inventory.dto.OrderRequestDto;
 import com.inventory.dto.OrderResponseDto;
+import com.inventory.enums.OrderStatus;
 
 import java.util.List;
 
 /**
- * Service Interface defining Order business operations.
+ * Service Interface defining Order business operations and state machine transitions.
  */
 public interface OrderService {
 
@@ -17,4 +18,8 @@ public interface OrderService {
     List<OrderResponseDto> getAllOrders();
 
     List<OrderResponseDto> getOrdersByCustomer(Long customerId);
+
+    OrderResponseDto updateOrderStatus(Long orderId, OrderStatus status);
+
+    OrderResponseDto cancelOrder(Long orderId, String reason);
 }
