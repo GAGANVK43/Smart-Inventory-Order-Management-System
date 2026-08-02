@@ -1,4 +1,5 @@
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\CorsConfig.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\OpenApiConfig.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\config\package-info.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\CategoryController.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\controller\CustomerController.java
@@ -18,6 +19,7 @@ C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Orde
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\package-info.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\ProductRequestDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\ProductResponseDto.java
+C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\response\ApiResponse.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\SupplierRequestDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\dto\SupplierResponseDto.java
 C:\Users\Admin\OneDrive\Documents\placementDrive\Projects\Smart Inventory & Order Management System\src\main\java\com\inventory\entity\Category.java
