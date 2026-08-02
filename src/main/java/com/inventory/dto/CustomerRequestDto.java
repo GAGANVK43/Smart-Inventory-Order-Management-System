@@ -22,13 +22,21 @@ public class CustomerRequestDto {
     @Pattern(regexp = "^[0-9+ -]{8,20}$", message = "Please provide a valid phone number (8 to 20 digits)")
     private String phone;
 
+    @Size(max = 255, message = "Shipping address cannot exceed 255 characters")
+    private String shippingAddress;
+
+    @Size(max = 255, message = "Billing address cannot exceed 255 characters")
+    private String billingAddress;
+
     public CustomerRequestDto() {
     }
 
-    public CustomerRequestDto(String name, String email, String phone) {
+    public CustomerRequestDto(String name, String email, String phone, String shippingAddress, String billingAddress) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.shippingAddress = shippingAddress;
+        this.billingAddress = billingAddress;
     }
 
     public String getName() {
@@ -53,5 +61,21 @@ public class CustomerRequestDto {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    public String getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
     }
 }

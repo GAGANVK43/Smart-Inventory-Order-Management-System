@@ -2,6 +2,7 @@ package com.inventory.service;
 
 import com.inventory.dto.CustomerRequestDto;
 import com.inventory.dto.CustomerResponseDto;
+import com.inventory.dto.OrderResponseDto;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public interface CustomerService {
     CustomerResponseDto getCustomerById(Long id);
 
     List<CustomerResponseDto> getAllCustomers();
+
+    List<OrderResponseDto> getCustomerOrders(Long customerId);
 
     void deleteCustomer(Long id);
 }
