@@ -1,5 +1,6 @@
 package com.inventory.service;
 
+import com.inventory.dto.ProductResponseDto;
 import com.inventory.dto.SupplierRequestDto;
 import com.inventory.dto.SupplierResponseDto;
 
@@ -17,6 +18,8 @@ public interface SupplierService {
     SupplierResponseDto getSupplierById(Long id);
 
     List<SupplierResponseDto> getAllSuppliers();
+
+    List<ProductResponseDto> getSupplierProducts(Long supplierId);
 
     void deleteSupplier(Long id);
 }

@@ -1,10 +1,13 @@
 package com.inventory.service.impl;
 
+import com.inventory.dto.ProductResponseDto;
 import com.inventory.dto.SupplierRequestDto;
 import com.inventory.dto.SupplierResponseDto;
+import com.inventory.entity.Product;
 import com.inventory.entity.Supplier;
 import com.inventory.exception.ResourceAlreadyExistsException;
 import com.inventory.exception.SupplierNotFoundException;
+import com.inventory.repository.ProductRepository;
 import com.inventory.repository.SupplierRepository;
 import com.inventory.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +24,12 @@ import java.util.stream.Collectors;
 public class SupplierServiceImpl implements SupplierService {
 
     private final SupplierRepository supplierRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public SupplierServiceImpl(SupplierRepository supplierRepository) {
+    public SupplierServiceImpl(SupplierRepository supplierRepository, ProductRepository productRepository) {
         this.supplierRepository = supplierRepository;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -36,8 +41,11 @@ public class SupplierServiceImpl implements SupplierService {
 
         Supplier supplier = new Supplier();
         supplier.setName(supplierRequestDto.getName());
+        supplier.setContactPerson(supplierRequestDto.getContactPerson());
         supplier.setEmail(supplierRequestDto.getEmail());
         supplier.setPhone(supplierRequestDto.getPhone());
+        supplier.setAddress(supplierRequestDto.getAddress());
+        supplier.setActive(true);
 
         Supplier savedSupplier = supplierRepository.save(supplier);
         return mapToResponseDto(savedSupplier);
@@ -55,8 +63,10 @@ public class SupplierServiceImpl implements SupplierService {
         }
 
         existingSupplier.setName(supplierRequestDto.getName());
+        existingSupplier.setContactPerson(supplierRequestDto.getContactPerson());
         existingSupplier.setEmail(supplierRequestDto.getEmail());
         existingSupplier.setPhone(supplierRequestDto.getPhone());
+        existingSupplier.setAddress(supplierRequestDto.getAddress());
 
         Supplier updatedSupplier = supplierRepository.save(existingSupplier);
         return mapToResponseDto(updatedSupplier);
@@ -79,20 +89,54 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<ProductResponseDto> getSupplierProducts(Long supplierId) {
+        if (!supplierRepository.existsById(supplierId)) {
+            throw new SupplierNotFoundException("Supplier not found with ID: " + supplierId);
+        }
+        return productRepository.findBySupplierIdAndActiveTrue(supplierId).stream()
+                .map(this::mapToProductResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional
     public void deleteSupplier(Long id) {
-        if (!supplierRepository.existsById(id)) {
-            throw new SupplierNotFoundException("Supplier not found with ID: " + id);
-        }
-        supplierRepository.deleteById(id);
+        Supplier supplier = supplierRepository.findById(id)
+                .orElseThrow(() -> new SupplierNotFoundException("Supplier not found with ID: " + id));
+        supplier.setActive(false);
+        supplierRepository.save(supplier);
     }
 
     private SupplierResponseDto mapToResponseDto(Supplier supplier) {
         return new SupplierResponseDto(
                 supplier.getId(),
                 supplier.getName(),
+                supplier.getContactPerson(),
                 supplier.getEmail(),
-                supplier.getPhone()
+                supplier.getPhone(),
+                supplier.getAddress(),
+                supplier.isActive()
+        );
+    }
+
+    private ProductResponseDto mapToProductResponseDto(Product product) {
+        boolean isLowStock = product.getQuantity() <= product.getReorderLevel();
+        return new ProductResponseDto(
+                product.getId(),
+                product.getSku(),
+                product.getBarcode(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getQuantity(),
+                product.getReorderLevel(),
+                product.isActive(),
+                isLowStock,
+                product.getCategory().getId(),
+                product.getCategory().getName(),
+                product.getSupplier().getId(),
+                product.getSupplier().getName()
         );
     }
 }
