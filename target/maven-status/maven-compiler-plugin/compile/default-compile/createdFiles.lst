@@ -35,6 +35,7 @@ com\inventory\entity\Supplier.class
 com\inventory\repository\RefreshTokenRepository.class
 com\inventory\dto\request\RegisterRequestDto.class
 com\inventory\entity\Order.class
+com\inventory\enums\MovementType.class
 com\inventory\controller\OrderController.class
 com\inventory\exception\OrderNotFoundException.class
 com\inventory\service\impl\SupplierServiceImpl.class
@@ -42,12 +43,17 @@ com\inventory\dto\OrderRequestDto.class
 com\inventory\security\JwtAuthenticationFilter.class
 com\inventory\exception\CustomerNotFoundException.class
 com\inventory\dto\CustomerRequestDto.class
+com\inventory\service\impl\InventoryServiceImpl.class
+com\inventory\entity\InventoryMovement.class
 com\inventory\entity\Role.class
+com\inventory\service\InventoryService.class
 com\inventory\config\CorsConfig$1.class
+com\inventory\dto\request\StockAdjustmentRequestDto.class
 com\inventory\controller\RootController.class
 com\inventory\repository\UserRepository.class
 com\inventory\service\AuthService.class
 com\inventory\entity\Product.class
+com\inventory\dto\response\InventoryMovementResponseDto.class
 com\inventory\repository\ProductRepository.class
 com\inventory\dto\OrderItemRequestDto.class
 com\inventory\controller\SupplierController.class
@@ -78,5 +84,7 @@ com\inventory\SmartInventoryApplication.class
 com\inventory\config\package-info.class
 com\inventory\entity\OrderItem.class
 com\inventory\dto\response\AuthResponseDto.class
+com\inventory\controller\InventoryController.class
 com\inventory\dto\OrderResponseDto.class
+com\inventory\repository\InventoryMovementRepository.class
 com\inventory\repository\package-info.class
