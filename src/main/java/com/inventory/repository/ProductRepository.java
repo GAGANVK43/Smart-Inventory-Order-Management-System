@@ -1,6 +1,8 @@
 package com.inventory.repository;
 
 import com.inventory.entity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,22 +13,32 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Spring Data JPA Repository for Product Entity with custom derived queries.
+ * Spring Data JPA Repository for Product Entity with custom derived queries & pagination.
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<Product> findByName(String name);
 
-    List<Product> findByCategoryId(Long categoryId);
+    Optional<Product> findBySku(String sku);
 
-    List<Product> findBySupplierId(Long supplierId);
+    Optional<Product> findByBarcode(String barcode);
 
-    List<Product> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
+    Boolean existsBySku(String sku);
 
-    /**
-     * Custom JPQL Query for searching products by name or description (case-insensitive).
-     */
-    @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    Boolean existsByBarcode(String barcode);
+
+    Page<Product> findAllByActiveTrue(Pageable pageable);
+
+    List<Product> findByCategoryIdAndActiveTrue(Long categoryId);
+
+    List<Product> findBySupplierIdAndActiveTrue(Long supplierId);
+
+    List<Product> findByPriceBetweenAndActiveTrue(BigDecimal minPrice, BigDecimal maxPrice);
+
+    @Query("SELECT p FROM Product p WHERE p.active = true AND (LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.sku) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%')))")
+    Page<Product> searchProductsPaginated(@Param("keyword") String keyword, Pageable pageable);
+
+    @Query("SELECT p FROM Product p WHERE p.active = true AND (LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.sku) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%')))")
     List<Product> searchProducts(@Param("keyword") String keyword);
 }

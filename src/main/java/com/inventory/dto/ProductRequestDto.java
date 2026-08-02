@@ -13,6 +13,10 @@ import java.math.BigDecimal;
  */
 public class ProductRequestDto {
 
+    private String sku;
+
+    private String barcode;
+
     @NotBlank(message = "Product name is mandatory")
     @Size(min = 2, max = 150, message = "Product name must be between 2 and 150 characters")
     private String name;
@@ -28,6 +32,9 @@ public class ProductRequestDto {
     @PositiveOrZero(message = "Quantity must be zero or a positive integer")
     private Integer quantity;
 
+    @PositiveOrZero(message = "Reorder level must be zero or positive")
+    private Integer reorderLevel = 5;
+
     @NotNull(message = "Category ID is mandatory")
     private Long categoryId;
 
@@ -37,13 +44,32 @@ public class ProductRequestDto {
     public ProductRequestDto() {
     }
 
-    public ProductRequestDto(String name, String description, BigDecimal price, Integer quantity, Long categoryId, Long supplierId) {
+    public ProductRequestDto(String sku, String barcode, String name, String description, BigDecimal price, Integer quantity, Integer reorderLevel, Long categoryId, Long supplierId) {
+        this.sku = sku;
+        this.barcode = barcode;
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.reorderLevel = reorderLevel;
         this.categoryId = categoryId;
         this.supplierId = supplierId;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 
     public String getName() {
@@ -76,6 +102,14 @@ public class ProductRequestDto {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Integer getReorderLevel() {
+        return reorderLevel;
+    }
+
+    public void setReorderLevel(Integer reorderLevel) {
+        this.reorderLevel = reorderLevel;
     }
 
     public Long getCategoryId() {
