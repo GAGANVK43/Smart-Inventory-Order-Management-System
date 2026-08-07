@@ -51,7 +51,6 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Customer Details", description = "Retrieve customer profile, lifetime spend metrics, and address details by ID")
     public ResponseEntity<ApiResponse<CustomerResponseDto>> getCustomerById(@PathVariable Long id) {
         CustomerResponseDto customer = customerService.getCustomerById(id);
@@ -59,7 +58,6 @@ public class CustomerController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get All Customers", description = "Retrieve list of all registered customers")
     public ResponseEntity<ApiResponse<List<CustomerResponseDto>>> getAllCustomers() {
         List<CustomerResponseDto> customers = customerService.getAllCustomers();
@@ -67,7 +65,6 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}/orders")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Customer Order History", description = "Retrieve all orders placed by a specific customer ID")
     public ResponseEntity<ApiResponse<List<OrderResponseDto>>> getCustomerOrders(@PathVariable Long id) {
         List<OrderResponseDto> orders = customerService.getCustomerOrders(id);

@@ -8,7 +8,7 @@ spring:
     name: smart-inventory-order-system
 
   datasource:
-    url: jdbc:mysql://localhost:3306/smart_inventory_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/smart_inventory_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver

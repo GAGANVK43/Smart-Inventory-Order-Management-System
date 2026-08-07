@@ -51,7 +51,6 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Supplier by ID", description = "Retrieve vendor details by ID")
     public ResponseEntity<ApiResponse<SupplierResponseDto>> getSupplierById(@PathVariable Long id) {
         SupplierResponseDto supplier = supplierService.getSupplierById(id);
@@ -59,7 +58,6 @@ public class SupplierController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get All Suppliers", description = "Retrieve all registered vendors in system")
     public ResponseEntity<ApiResponse<List<SupplierResponseDto>>> getAllSuppliers() {
         List<SupplierResponseDto> suppliers = supplierService.getAllSuppliers();
@@ -67,7 +65,6 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}/products")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Supplier Products", description = "Retrieve all products supplied by a specific vendor ID")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> getSupplierProducts(@PathVariable Long id) {
         List<ProductResponseDto> products = supplierService.getSupplierProducts(id);

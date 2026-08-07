@@ -55,7 +55,6 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Product by ID", description = "Retrieve product details by database primary key ID")
     public ResponseEntity<ApiResponse<ProductResponseDto>> getProductById(@PathVariable Long id) {
         ProductResponseDto product = productService.getProductById(id);
@@ -63,7 +62,6 @@ public class ProductController {
     }
 
     @GetMapping("/sku/{sku}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Product by SKU", description = "Retrieve product details by unique Stock Keeping Unit (SKU)")
     public ResponseEntity<ApiResponse<ProductResponseDto>> getProductBySku(@PathVariable String sku) {
         ProductResponseDto product = productService.getProductBySku(sku);
@@ -71,7 +69,6 @@ public class ProductController {
     }
 
     @GetMapping("/barcode/{barcode}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Product by Barcode", description = "Retrieve product details by scanned Barcode")
     public ResponseEntity<ApiResponse<ProductResponseDto>> getProductByBarcode(@PathVariable String barcode) {
         ProductResponseDto product = productService.getProductByBarcode(barcode);
@@ -79,7 +76,6 @@ public class ProductController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get All Products", description = "Retrieve all active products in inventory")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> getAllProducts() {
         List<ProductResponseDto> products = productService.getAllProducts();
@@ -87,7 +83,6 @@ public class ProductController {
     }
 
     @GetMapping("/page")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Products Paginated", description = "Retrieve products with pagination and dynamic sorting")
     public ResponseEntity<ApiResponse<Page<ProductResponseDto>>> getAllProductsPaginated(
             @RequestParam(defaultValue = "0") int page,
@@ -102,7 +97,6 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Search Products", description = "Search products by keyword in name, SKU, or description")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> searchProducts(@RequestParam String keyword) {
         List<ProductResponseDto> products = productService.searchProducts(keyword);
@@ -110,7 +104,6 @@ public class ProductController {
     }
 
     @GetMapping("/category/{categoryId}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Products by Category", description = "Filter active products by category ID")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> getProductsByCategory(@PathVariable Long categoryId) {
         List<ProductResponseDto> products = productService.getProductsByCategory(categoryId);
@@ -118,7 +111,6 @@ public class ProductController {
     }
 
     @GetMapping("/supplier/{supplierId}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Products by Supplier", description = "Filter active products by supplier ID")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> getProductsBySupplier(@PathVariable Long supplierId) {
         List<ProductResponseDto> products = productService.getProductsBySupplier(supplierId);
@@ -126,7 +118,6 @@ public class ProductController {
     }
 
     @GetMapping("/price-range")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Filter Products by Price Range", description = "Retrieve products within min and max price boundaries")
     public ResponseEntity<ApiResponse<List<ProductResponseDto>>> getProductsByPriceRange(
             @RequestParam BigDecimal min,

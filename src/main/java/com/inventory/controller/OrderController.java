@@ -41,7 +41,6 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Order by ID", description = "Retrieve complete order details and item breakdown by ID")
     public ResponseEntity<ApiResponse<OrderResponseDto>> getOrderById(@PathVariable Long id) {
         OrderResponseDto order = orderService.getOrderById(id);
@@ -49,7 +48,6 @@ public class OrderController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get All Orders", description = "Retrieve list of all customer orders in system")
     public ResponseEntity<ApiResponse<List<OrderResponseDto>>> getAllOrders() {
         List<OrderResponseDto> orders = orderService.getAllOrders();
@@ -57,7 +55,6 @@ public class OrderController {
     }
 
     @GetMapping("/customer/{customerId}")
-    @PreAuthorize("hasAnyRole('STAFF', 'MANAGER', 'ADMIN')")
     @Operation(summary = "Get Orders by Customer", description = "Retrieve all orders placed by a specific customer ID")
     public ResponseEntity<ApiResponse<List<OrderResponseDto>>> getOrdersByCustomer(@PathVariable Long customerId) {
         List<OrderResponseDto> orders = orderService.getOrdersByCustomer(customerId);

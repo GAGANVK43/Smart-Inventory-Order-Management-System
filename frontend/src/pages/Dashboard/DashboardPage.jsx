@@ -83,11 +83,13 @@ const DashboardPage = () => {
         orderApi.getAll(),
       ]);
 
-      const catList = Array.isArray(catData) ? catData : [];
-      const supList = Array.isArray(supData) ? supData : [];
-      const prodList = Array.isArray(prodData) ? prodData : [];
-      const custList = Array.isArray(custData) ? custData : [];
-      const ordList = Array.isArray(ordData) ? ordData : [];
+      const extractList = (res) => (Array.isArray(res) ? res : (res?.data && Array.isArray(res.data) ? res.data : []));
+
+      const catList = extractList(catData);
+      const supList = extractList(supData);
+      const prodList = extractList(prodData);
+      const custList = extractList(custData);
+      const ordList = extractList(ordData);
 
       const revenue = ordList.reduce((sum, order) => sum + (order?.totalAmount || 0), 0);
 
